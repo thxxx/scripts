@@ -1,0 +1,18 @@
+name: TEST
+
+on:
+  push:
+    paths: 'test'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+    - name: Checking Clean Test Case Compilation
+      run: |
+        make -C test;
