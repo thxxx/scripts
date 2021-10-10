@@ -18,5 +18,5 @@ jobs:
         ./install-deps.sh;
         commit_number=$(git rev-parse :linux);
         wget https://github.com/thxxx/linux/archive/${{commit_number}}.zip;
-        unzip -q ${{commit_number}}.zip;
+        unzip ${{commit_number}}.zip;
         ./build-linux.sh ./linux-${{commit_number}} tinyconfig;
