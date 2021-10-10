@@ -2,7 +2,7 @@ name: Continuously Checking Clean Build
 
 on:
   push:
-    paths: 'linux'
+    paths: "linux"
 
 jobs:
   build:
@@ -13,8 +13,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Checking Clean Build
       run: |
-        ./install-deps.sh
-        commitNumber=$(git rev-parse :linux)
-        wget https://github.com/thxxx/linux/archive/${{commitNumber}}.zip
-        unzip ${{commitNumber}}.zip
-        ./build-linux.sh ./linux-${{commitNumber}} tinyconfig
+        ./install-deps.sh;
+        commitSubmodule=$(git rev-parse :linux);
+        wget https://github.com/thxxx/linux/archive/${commitSubmodule}.zip;
+        unzip -q $commitSubmodule.zip;
+        ./build-linux.sh ./linux-$commitSubmodule tinyconfig;
