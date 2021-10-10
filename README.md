@@ -1,4 +1,4 @@
-# Description
+# Descriptions
 
 ```bash
 ./install-deps.sh
