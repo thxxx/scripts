@@ -11,12 +11,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        submodules: true
     - name: Checking Clean Build
       run: |
-        ./install-deps.sh;
-        commit_number=$(git rev-parse :linux);
-        wget https://github.com/thxxx/linux/archive/${{commit_number}}.zip;
-        unzip ${{commit_number}}.zip;
-        ./build-linux.sh ./linux-${{commit_number}} tinyconfig;
+        ./install-deps.sh
+        commitNumber=$(git rev-parse :linux)
+        wget https://github.com/thxxx/linux/archive/${{commitNumber}}.zip
+        unzip ${{commitNumber}}.zip
+        ./build-linux.sh ./linux-${{commitNumber}} tinyconfig
